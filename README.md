@@ -4,14 +4,16 @@
 
 ```sh
 $ npm install
-$ cd functions && npm install && cd -
 $ npx firebase login
+$ cd functions
+$ npm install
+$ cp .env.example .env
 ```
 
 ## ローカルでサーバーを起動する
 
 ```sh
 $ cd functions
-$ npx functions-framework --target=helloWorld
+$ npm start
 ```
 
