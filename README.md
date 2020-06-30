@@ -3,8 +3,14 @@
 ## セットアップ
 
 ```sh
+### プロジェクトのセットアップ
 $ npm install
 $ npx firebase login
+$ npx firebase use
+```
+
+```sh
+### Cloud Functionsのセットアップ
 $ cd functions
 $ npm install
 $ cp .env.example .env
