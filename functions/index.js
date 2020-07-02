@@ -34,7 +34,7 @@ exports.createExternalAccount = functions
       return new Promise.reject(new Error('Invalid request'))
     }
 
-    // Bubble APIに対して成功時とエラー時で共通のデータ構造を返す。
+    // API Connectorに対して、成功時とエラー時で共通のデータ構造を返す。
     // API Connectorは「`Initialize call` したときのレスポンス」のデータ構造しか扱えない。
     let body = {
       external_account: {
