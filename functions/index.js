@@ -5,8 +5,8 @@ function infof(accountId, appUserId, message) {
   console.log('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
 }
 
-function errorf(accountId, appUserId) {
-  console.error('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
+function errorf(accountId, appUserId, message) {
+  console.log('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
 }
 
 // TODO: 関数の再試行を考慮する
