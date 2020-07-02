@@ -35,6 +35,9 @@ $ npm run deploy
 ```sh
 $ cd functions
 $ npm start
+
+## ホットリロードで開発する場合
+$ npm run watch
 ```
 
 ## リソース
