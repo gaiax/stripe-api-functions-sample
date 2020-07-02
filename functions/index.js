@@ -1,5 +1,5 @@
 const functions = require('firebase-functions');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(functions.config().stripe.secret_key);
 
 // TODO: 関数の再試行を考慮する
 // https://firebase.google.com/docs/functions/retries?hl=ja
