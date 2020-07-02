@@ -15,7 +15,6 @@ function errorf(accountId, appUserId, message) {
 exports.createExternalAccount = functions
   .region('asia-northeast1')
   .https.onRequest(async (request, response) => {
-    // TODO: リクエストボディのaccount_idを使う
     let accountId = request.body.account_id
 
     infof(accountId, request.body.app_user_id, 'Start')
