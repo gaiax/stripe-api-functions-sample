@@ -1,11 +1,11 @@
 const functions = require('firebase-functions');
 const stripe = require('stripe')(functions.config().stripe.secret_key);
 
-function info(accountId, appUserId, message) {
+function infof(accountId, appUserId, message) {
   console.log('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
 }
 
-function error(accountId, appUserId) {
+function errorf(accountId, appUserId) {
   console.error('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
 }
 
@@ -15,22 +15,13 @@ function error(accountId, appUserId) {
 exports.createExternalAccount = functions
   .region('asia-northeast1')
   .https.onRequest(async (request, response) => {
-    let createdAccount = await stripe.accounts.create({
-      type: 'custom',
-      country: 'JP',
-      requested_capabilities: [
-        'card_payments',
-        'transfers',
-      ],
-    })
-    let accountId = createdAccount.id
     // TODO: リクエストボディのaccount_idを使う
-    // let accountId = request.body.account_id
+    let accountId = request.body.account_id
 
-    info(accountId, request.body.app_user_id, 'Start')
+    infof(accountId, request.body.app_user_id, 'Start')
 
     if (request.method !== 'POST') {
-      info(accountId, request.body.app_user_id, 'Finalize')
+      infof(accountId, request.body.app_user_id, 'Finalize')
       return new Promise.reject(new Error('Invalid request'))
     }
 
@@ -63,13 +54,13 @@ exports.createExternalAccount = functions
     let account = await stripe.accounts.retrieve(accountId)
       .catch(error => {
         body.error_param = 'account_id'
-        error(accountId, request.body.app_user_id, error)
+        errorf(accountId, request.body.app_user_id, error)
         return error
       })
     let isRetrieved = typeof (account.id) === 'string'
     if (!isRetrieved) {
       response.send(body)
-      error(accountId, request.body.app_user_id, 'Finalize')
+      errorf(accountId, request.body.app_user_id, 'Finalize')
       return Promise.reject(new Error('Stripe account not be found: ' + accountId))
     }
 
@@ -87,11 +78,11 @@ exports.createExternalAccount = functions
         }
       }
     }).then(externalAccount => {
-      info(accountId, request.body.app_user_id, 'Created external_account: ' + externalAccount.id)
+      infof(accountId, request.body.app_user_id, 'Created external_account: ' + externalAccount.id)
       body.external_account = externalAccount
       return externalAccount
     }).catch(error => {
-      error(accountId, request.body.app_user_id, error)
+      errorf(accountId, request.body.app_user_id, error)
       if (error.raw.code === 'account_invalid') {
         body.error_param = 'account_id'
       }
@@ -109,5 +100,5 @@ exports.createExternalAccount = functions
       return error
     })
     response.send(body)
-    info(accountId, request.body.app_user_id, 'End')
+    infof(accountId, request.body.app_user_id, 'End')
   })
