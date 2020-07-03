@@ -44,14 +44,14 @@ exports.createExternalAccount = functions
       error_param: ''
     }
 
-    // BubbleのAPI Connectorのリクエストヘッダーには `multipart/form-data`がついている。
-    // Cloud Functionsは `multipart/form-data` のリクエストを受け取ると `request.body` が空になり、
-    // `request.rawBody` にリクエストデータが入る。
+    // BubbleのAPI Connectorのリクエストはmultipart/form-dataになっている。
+    // Cloud Functionsはmultipart/form-dataのリクエストを受け取ると `request.body` が空になり、
+    // `request.rawBody` にパラメータが入る。
     // 参考: https://cloud.google.com/functions/docs/writing/http?hl=ja#writing_http_helloworld-nodejs
     const busboy = new Busboy({ headers: request.headers })
     let params = {}
-    busboy.on('field', (fieldname, val, _, __) => {
-      params[fieldname] = val
+    busboy.on('field', (fieldname, value, _, __) => {
+      params[fieldname] = value
     }).on('finish', async () => {
       let accountId = params.account_id
       infof(accountId, params.app_user_id, 'Start')
