@@ -8,8 +8,9 @@
 $ npm install
 $ npx firebase login
 ## 予めFirebaseコンソールでCloud Functionsを有効化する
-## Stripeアカウントを作成後、シークレットキー を確認する
-## https://dashboard.stripe.com/test/apikey
+## Stripeアカウントを作成しておく
+## - [シークレットキーを確認する](https://dashboard.stripe.com/test/apikey)
+## - [Stripe Connectを有効化する](https://dashboard.stripe.com/connect/overview)
 $ npx firebase functions:config:set stripe.secret_key=YOUR_SECRET_KEY
 ## Cloud Functionsの環境構成をローカルで使うためのファイル
 ## 予め `firebase functions:config:set` で環境構成をセットしておく
@@ -36,12 +37,14 @@ $ npm run deploy
 $ cd functions
 $ npm start
 
-## ホットリロードで開発する場合
+## ホットリロードで開発する。
+## 予期せぬエラーが発生するとサーバーが止まる。その場合、index.jsのタイムスタンプを更新する（テキトーにファイル保存したり `touch index.js` する）と再起動できる。
 $ npm run watch
 ```
 
 ## リソース
 
+- [ダッシュボード – Stripe](https://dashboard.stripe.com/dashboard)
 - [Firebase コンソール](https://console.firebase.google.com/)
 - [GoogleCloudPlatform/functions-framework-nodejs: FaaS (Function as a service) framework for writing portable Node.js functions](https://github.com/GoogleCloudPlatform/functions-framework-nodejs)
 
