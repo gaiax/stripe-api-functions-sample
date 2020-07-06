@@ -40,6 +40,10 @@ $ npm start
 ## ホットリロードで開発する。
 ## 予期せぬエラーが発生するとサーバーが止まる。その場合、index.jsのタイムスタンプを更新する（テキトーにファイル保存したり `touch index.js` する）と再起動できる。
 $ npm run watch
+
+## 銀行口座を登録する。account_idをStripe ConnectのアカウントIDに置き換えること。
+$ curl -X POST http://localhost:8080 -F "account_number=0001234" -F "branch_number=000" -F "bank_number=1100" -F "account_holder_name=カ）ヤマダ" -F "account_id=acct_xxxxxxxxxxxxx" -F "app_user_id=1"
+
 ```
 
 ## リソース
