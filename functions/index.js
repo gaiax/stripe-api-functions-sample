@@ -10,9 +10,6 @@ function errorf(accountId, appUserId, message) {
   console.log('account_id=' + accountId + ',app_user_id=' + appUserId + ': ' + message)
 }
 
-// TODO: 関数の再試行を考慮する
-// https://firebase.google.com/docs/functions/retries?hl=ja
-
 exports.createExternalAccount = functions
   .region('asia-northeast1')
   .https.onRequest(async (request, response) => {
