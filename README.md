@@ -1,5 +1,7 @@
 # Stripe Connect API
 
+[Bubbleの使用例](./BUBBLE-SAMPLE.md)
+
 ## セットアップ
 
 ### プロジェクトのセットアップ
