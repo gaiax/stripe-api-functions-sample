@@ -9,7 +9,7 @@
 イメージ図
 
 ```
-[bubble.ioのAPI Connector Plugin] --- [Cloud Functions（このプロジェクト）] --- [Stripe API]
+[bubble.ioのAPI Connector Plugin] --- [Cloud Functions（このプロジェクト）] --- [Stripe Connect]
 ```
 
 - [Bubbleの使用例](./BUBBLE-SAMPLE.md)
