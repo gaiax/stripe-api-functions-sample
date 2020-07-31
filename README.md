@@ -1,8 +1,22 @@
 # Stripe Connect API
 
-[Bubbleの使用例](./BUBBLE-SAMPLE.md)
+## 概要
 
-## セットアップ
+[Bubble](bubble.io)のAPI Connectorから外部APIを叩くには不便な仕様がある（2020年7月31日時点）。
+
+このリポジトリはAPI ConnectorとStripe APIの仲介役になるCloud Functionsを扱うプロジェクトです。
+
+イメージ図
+
+```
+[bubble.ioのAPI Connector Plugin] --- [Cloud Functions（このプロジェクト）] --- [Stripe API]
+```
+
+- [Bubbleの使用例](./BUBBLE-SAMPLE.md)
+
+## :exclamation: :exclamation: このプロジェクトは実装サンプルです :exclamation: :exclamation:
+
+プロダクションで利用する場合、Bubbleの仕様変更や現行仕様の把握、Functionsに認証処理の追加等の検討を推奨します。
 
 ### プロジェクトのセットアップ
 
