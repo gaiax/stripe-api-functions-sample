@@ -9,13 +9,16 @@
 ```sh
 $ npm install
 $ npx firebase login
+
 ## 予めFirebaseコンソールでCloud Functionsを有効化する
 $ npx firebase use
+
 ## Stripeアカウントを作成しておく
 ## - [シークレットキーを確認する](https://dashboard.stripe.com/test/apikey)
 ## - [Stripe Connectを有効化する](https://dashboard.stripe.com/connect/overview)
 ## - [ブランディングを設定する](https://dashboard.stripe.com/test/settings/applications)
 $ npx firebase functions:config:set stripe.secret_key=YOUR_SECRET_KEY
+
 ## Cloud Functionsの環境構成をローカルで使うためのファイル
 ## 予め `firebase functions:config:set` で環境構成をセットしておく
 $ npx firebase functions:config:get > .runtimeconfig.json
