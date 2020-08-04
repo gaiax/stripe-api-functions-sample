@@ -13,6 +13,9 @@ Cloud FunctionsのエンドポイントにPOSTリクエストを投げる。
 
 <img width="804" alt="スクリーンショット 2020-07-30 13 43 16" src="https://user-images.githubusercontent.com/381483/88882106-2ce92800-d26c-11ea-83d6-cf67bf24181f.png">
 
+<img width="832" alt="スクリーンショット 2020-08-04 12 56 27" src="https://user-images.githubusercontent.com/381483/89252390-8aa6b700-d654-11ea-95e1-84b862b6c96d.png">
+
+
 ## Step 2〜4 エラ〜メッセージを表示する
 
 StripeのCreate External Account APIはエラー発生時にどのパラメーターに不備があったかを返してくれる。ただし、返ってくるのは一種類のみ。
