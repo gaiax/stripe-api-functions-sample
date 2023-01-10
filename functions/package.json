@@ -19,7 +19,7 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^1.6.0",
     "busboy": "^0.3.1",
-    "firebase-admin": "^8.0.0",
+    "firebase-admin": "^11.4.1",
     "firebase-functions": "^3.1.0",
     "stripe": "^8.67.0"
   },
